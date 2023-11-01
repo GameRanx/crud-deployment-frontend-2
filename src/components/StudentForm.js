@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 
 function StudentForm(props)
 {
-    const [name,setName] = useState("props.nameValue");
-    const [email,setEmail] = useState("props.emailValue");
-    const [rollNo,setRollNo] = useState("props.rollNo");
+    const [name,setName] = useState(props.nameValue);
+    const [email,setEmail] = useState(props.emailValue);
+    const [rollNo,setRollNo] = useState(props.rollNoValue);
 
     useEffect(()=>{
         setName(props.nameValue);
         setEmail(props.emailValue);
         setRollNo(props.rollNoValue);
     },[props.nameValue,props.emailValue,props.rollNoValue]);
-    
+   
     const arr = [name,email,rollNo];  //[Raj,raj@gmail.com,1]
-
+   
     const handleClick = () =>{
         props.getState(arr);
     }
@@ -27,4 +27,5 @@ function StudentForm(props)
         </div>
     )
 }
+
 export default StudentForm;
